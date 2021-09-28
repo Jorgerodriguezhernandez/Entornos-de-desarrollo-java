@@ -14,11 +14,31 @@ public class MeterDatos {
         ArrayList<String> NombresRandom = new ArrayList<>();
         FileReader f = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
-        while ((b.readLine()) != null) {
+        while((b.readLine())!=null) {
             Nombres.add((b.readLine()));
 
         }
-    }
+
+        for(int i=0; i < Nombres.size(); i++){
+            Random rand = new Random();
+            int n = rand.nextInt(Nombres.size());
+            if(NombresRandom.size() < 10) {
+                NombresRandom.add(Nombres.get(n));
+            }else{
+                break;
+            }
+        }
+        for(int i=0; i < 40; i++){
+            Random rand = new Random();
+            double n = rand.nextInt(10);
+            Notas.add(n);
+
+        }
+        b.close();
+
+
+}
+
     public static void main(String[] args) throws IOException {
         muestraContenido("E:/PGL/Practica1-1/Nombres.csv");
     }
