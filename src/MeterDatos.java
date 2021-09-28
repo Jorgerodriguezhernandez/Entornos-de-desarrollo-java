@@ -37,7 +37,31 @@ public class MeterDatos {
         b.close();
 
 
-}
+
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        fichero = new FileWriter("E:/Practica1-1/NotasOficiales.csv");
+        pw = new PrintWriter(fichero);
+
+        for(int i=0; i < NombresRandom.size(); i++){
+            pw.print("\n" + NombresRandom.get(i));
+            pw.print("    | "+ Notas.get(i));
+            pw.print("    | "+ Notas.get(i+1));
+            pw.print("    | "+ Notas.get(i+2));
+            pw.print("    | "+ Notas.get(i+3));
+            pw.println("|     La media es: "+ ((Notas.get(i) + Notas.get(i+2) + Notas.get(i+3)))/4);
+
+            System.out.print("\n" + NombresRandom.get(i));
+            System.out.print("    | "+ Notas.get(i));
+            System.out.print("    | "+ Notas.get(i+1));
+            System.out.print("    | "+ Notas.get(i+2));
+            System.out.print("    | "+ Notas.get(i+3));
+            System.out.print("|     La media es: "+ ((Notas.get(i) + Notas.get(i+2) + Notas.get(i+3)))/4);
+        }
+
+        if (null != fichero)
+            fichero.close();
+    }
 
     public static void main(String[] args) throws IOException {
         muestraContenido("E:/PGL/Practica1-1/Nombres.csv");
